@@ -1,6 +1,14 @@
-<% @cocktails.each do |cocktail| %>
-  <h2><%= cocktail.name %></h2>
-  <%= link_to "View", cocktail_path(cocktail.id), {class: "btn btn-primary"} %>
-<% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <% i=0 %>
+        <% @cocktails.each do |cocktail| %>
+          <% i+=1 %>
+          <h2 class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://lorempixel.com/400/200/nightlife/<%=i%>')"><%= link_to cocktail.name, cocktail_path(cocktail.id) %></h2>
+          <%= link_to "View", cocktail_path(cocktail.id), {class: "btn btn-primary"} %>
 
-  <%= link_to "New", new_cocktail_path, {class: "btn btn-primary"} %>
+        <% end %>
+    </div>
+  </div>
+
+<%= link_to "New", new_cocktail_path, {class: "btn btn-primary"} %>
